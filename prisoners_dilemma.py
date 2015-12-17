@@ -201,7 +201,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 4:
         if getting_team_name:
-            return 'betray every 3rd round'
+            return 'loyal'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
@@ -209,7 +209,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
             if(size%3==0): #the number of rounds played is a multiple of 3
                 return 'c'
             else:
-                return 'b'
+                return 'c'
     
     
     
@@ -226,14 +226,14 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 5:
         if getting_team_name:
-            return 'loyal vengeful'
+            return 'loyal'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' # betray is they were severely punished last time
+            elif history[-1]=='c' and opponent_history[-1]=='c':
+                return 'c' # betray is they were severely punished last time
             else:
                 return 'c' #otherwise collude
     
@@ -250,14 +250,14 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 6:
         if getting_team_name:
-            return 'loyal vengeful'
+            return 'loyal'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' # betray is they were severely punished last time
+            elif history[-1]=='c' and opponent_history[-1]=='c':
+                return 'c' # betray is they were severely punished last time
             else:
                 return 'c' #otherwise collude
     
@@ -276,14 +276,14 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 7:
         if getting_team_name:
-            return 'loyal vengeful'
+            return 'loyal'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' # betray is they were sucker last time
+            elif history[-1]=='c' and opponent_history[-1]=='c':
+                return 'c' # betray is they were sucker last time
             else:
                 return 'c' #otherwise collude
 
@@ -303,7 +303,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     elif player == 8:
         if getting_team_name:
             #if there was a previous round just like 
-            return 'loyal vengeful with permanent second impression'
+            return 'loyal'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy      
@@ -324,8 +324,8 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
                             (prior_round_opponent == recent_round_opponent):
                         return opponent_history[round]
                 # no match found
-                if history[-1]=='c' and opponent_history[-1]=='b':
-                    return 'b' # betray is they were severely punished last time
+                if history[-1]=='c' and opponent_history[-1]=='c':
+                    return 'c' # betray is they were severely punished last time
                 else:
                     return 'c' #otherwise collude
 
